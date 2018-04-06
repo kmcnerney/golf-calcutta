@@ -2907,6 +2907,16 @@ googleapis@23.0.0:
     google-auth-library "0.12.0"
     string-template "1.0.0"
 
+googleapis@^28.1.0:
+  version "28.1.0"
+  resolved "http://nexus.core.cvent.org:8081/nexus/content/groups/npm-public/googleapis/-/googleapis-28.1.0.tgz#f78ce5751581387274f8eb22eee947a13c7c4285"
+  dependencies:
+    google-auth-library "^1.3.1"
+    pify "^3.0.0"
+    qs "^6.5.1"
+    string-template "1.0.0"
+    uuid "^3.2.1"
+
 got@8.2.0:
   version "8.2.0"
   resolved "http://nexus.core.cvent.org:8081/nexus/content/groups/npm-public/got/-/got-8.2.0.tgz#0d11a071d05046348a2f5c0a5fa047fb687fdfc6"
@@ -5179,7 +5189,7 @@ q@^1.1.2:
   version "1.5.1"
   resolved "http://nexus.core.cvent.org:8081/nexus/content/groups/npm-public/q/-/q-1.5.1.tgz#7e32f75b41381291d04611f1bf14109ac00651d7"
 
-qs@6.5.1, qs@~6.5.1:
+qs@6.5.1, qs@^6.5.1, qs@~6.5.1:
   version "6.5.1"
   resolved "http://nexus.core.cvent.org:8081/nexus/content/groups/npm-public/qs/-/qs-6.5.1.tgz#349cdf6eef89ec45c12d7d5eb3fc0c870343a6d8"
 
@@ -6642,7 +6652,7 @@ utils-merge@1.0.1:
   version "1.0.1"
   resolved "http://nexus.core.cvent.org:8081/nexus/content/groups/npm-public/utils-merge/-/utils-merge-1.0.1.tgz#9f95710f50a267947b2ccc124741c1028427e713"
 
-uuid@3.2.1, uuid@^3.0.0, uuid@^3.0.1, uuid@^3.1.0:
+uuid@3.2.1, uuid@^3.0.0, uuid@^3.0.1, uuid@^3.1.0, uuid@^3.2.1:
   version "3.2.1"
   resolved "http://nexus.core.cvent.org:8081/nexus/content/groups/npm-public/uuid/-/uuid-3.2.1.tgz#12c528bb9d58d0b9265d9a2f6f0fe8be17ff1f14"
 
