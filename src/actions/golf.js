@@ -5,7 +5,7 @@ import Dispatcher from '../dispatcher'
 // Constants
 import Constants from '../constants.js'
 
-const Actions = {
+const GolfActions = {
 	getCurrentTournament (fn) {
 		Dispatcher.handleViewAction({
 			actionType: Constants.ACTIONS.GET_CURRENT_TOURNAMENT,
@@ -21,4 +21,4 @@ const Actions = {
 	}
 }
 
-export default Actions
+export default GolfActions

@@ -5,10 +5,10 @@ import Dispatcher from '../dispatcher'
 import Store from './store'
 
 // APIs
-import PgaAPI from '../apis/pga'
+import GolfAPI from '../apis/golf'
 
 // Actions
-import Actions from '../actions/actions'
+import GolfActions from '../actions/golf'
 
 // Constants
 import Constants from '../constants'
@@ -22,7 +22,7 @@ function clearState () {
 }
 
 function getCurrentTournament (fn) {
-	PgaAPI.getCurrentTournament((err, res) => {
+	GolfAPI.getCurrentTournament((err, res) => {
 		if (err) {
 			return fn(err)
 		}
@@ -37,7 +37,7 @@ function getRealTimeData (fn) {
 		return fn('Waiting for tournament ID...')
 	}
 
-	PgaAPI.getRealTimeData(_currentTournament.tid, (err, res) => {
+	GolfAPI.getRealTimeData(_currentTournament.tid, (err, res) => {
 		if (err) {
 			return fn(err)
 		}
@@ -47,7 +47,7 @@ function getRealTimeData (fn) {
 	})
 }
 
-const PgaStore = _.assign({
+const GolfStore = _.assign({
 	getCurrentTournament () {
 		return _currentTournament
 	},
@@ -57,7 +57,7 @@ const PgaStore = _.assign({
 	}
 }, Store)
 
-PgaStore.dispatchToken = Dispatcher.register(({action}) => {
+GolfStore.dispatchToken = Dispatcher.register(({action}) => {
 	const fn = _.noop
 
 	switch (action.actionType) {
@@ -69,11 +69,11 @@ PgaStore.dispatchToken = Dispatcher.register(({action}) => {
 		getCurrentTournament(err => {
 			if (err) {
 				console.log(err)
-				PgaStore.emitChange('getCurrentTournament', new Error('Failed to get current tournament.'))
+				GolfStore.emitChange('getCurrentTournament', new Error('Failed to get current tournament.'))
 				fn(err)
 			} else {
-				Actions.getRealTimeData()
-				PgaStore.emitChange('getCurrentTournament')
+				GolfActions.getRealTimeData()
+				GolfStore.emitChange('getCurrentTournament')
 				fn(null)
 			}
 		})
@@ -83,10 +83,10 @@ PgaStore.dispatchToken = Dispatcher.register(({action}) => {
 		getRealTimeData(err => {
 			if (err) {
 				console.log(err)
-				PgaStore.emitChange('getRealTimeData', new Error('Failed to get current real time data.'))
+				GolfStore.emitChange('getRealTimeData', new Error('Failed to get current real time data.'))
 				fn(err)
 			} else {
-				PgaStore.emitChange('getRealTimeData')
+				GolfStore.emitChange('getRealTimeData')
 				fn(null)
 			}
 		})
@@ -99,4 +99,4 @@ PgaStore.dispatchToken = Dispatcher.register(({action}) => {
 	return true
 })
 
-export default PgaStore
+export default GolfStore
