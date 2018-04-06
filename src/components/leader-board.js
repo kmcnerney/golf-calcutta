@@ -49,7 +49,7 @@ export default class LeaderBoard extends React.Component {
 
 	render () {
 		let data = this.state.realTimeData ? this.state.realTimeData.leaderboard.players : []
-		
+
 		return (
 			<BootstrapTable
 				keyField="leaderBoard"
