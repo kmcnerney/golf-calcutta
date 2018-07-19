@@ -77,9 +77,10 @@ function convertToDollars (num) {
 }
 
 function getState () {
-	let calcuttaResults = GolfStore.getCalcuttaResults()
-	let payoutInfo = GolfStore.getPayoutInfo()
-	let realTimeData = GolfStore.getRealTimeData() ? GolfStore.getRealTimeData().leaderboard.players : []
+	const calcuttaResults = GolfStore.getCalcuttaResults()
+	const payoutInfo = GolfStore.getPayoutInfo()
+	const realTimeData = GolfStore.getRealTimeData() ? GolfStore.getRealTimeData().leaderboard.players : []
+	const numFieldGolfers = realTimeData.length - NUM_GOLFERS_AUCTIONED
 
 	if (calcuttaResults && payoutInfo) {
 		let currPosition = 1
@@ -120,7 +121,6 @@ function getState () {
 				}
 
 				if (_.isEqual(buyerRow, NUM_GOLFERS_AUCTIONED)) {
-					const numFieldGolfers = realTimeData.length - NUM_GOLFERS_AUCTIONED
 					// this golfer is in the field
 					realTimeData[golferRow].buyer = buyer[CALCUTTA_DOC_INDICES.BUYER]
 					realTimeData[golferRow].odds = 'FIELD'
@@ -169,7 +169,7 @@ function getState () {
 	return {
 		calcuttaResults,
 		payoutInfo,
-		tournament: '100', // GolfStore.getCurrentTournament(),
+		tournament: GolfStore.getCurrentTournament(),
 		realTimeData
 	}
 }
