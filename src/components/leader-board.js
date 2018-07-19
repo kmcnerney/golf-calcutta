@@ -73,7 +73,7 @@ function convertToNumber (numString) {
 }
 
 function convertToDollars (num) {
-	return '$' + _.round(num, 2)
+	return '$' + _.round(num, 2).toFixed(2)
 }
 
 function getState () {
@@ -86,7 +86,7 @@ function getState () {
 		let golfersPaid = 0
 		for (let golferRow = 0; golferRow < realTimeData.length; golferRow++) {
 			let golfer = realTimeData[golferRow]
-			let actualVal = '$0'
+			let actualVal = convertToDollars(0)
 			let currPosMatch = _.isEqual('T' + currPosition, golfer.current_position)
 
 			if (golfersPaid <= NUM_GOLFERS_TO_PAY || currPosMatch) {
