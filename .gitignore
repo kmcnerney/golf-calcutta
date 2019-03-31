@@ -1,6 +1,5 @@
 node_modules/
 *\.log
-build/
 .idea/
 yarn.lock
 token.json
