@@ -8,11 +8,11 @@ import { Provider } from 'react-redux'
 
 import rootReducer from './reducers/root-reducer'
 
+// Styles
+import './sass/main.scss'
+
 // Actions
 import GolfActions from './actions/golf'
-
-// Styles
-import './less/main.less'
 
 // Components
 import LeaderBoard from './components/leader-board'

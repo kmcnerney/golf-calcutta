@@ -192,6 +192,5 @@ export default class LeaderBoard extends React.Component {
 
 	_onChange () {
 		this.setState(getState())
-	};
-
+	}
 }
