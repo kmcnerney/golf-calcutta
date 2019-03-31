@@ -63,7 +63,7 @@ function getRealTimeData (fn) {
 		return fn('Waiting for tournament ID...')
 	}
 
-	GolfAPI.getRealTimeData(_currentTournament.tid, (err, res) => {
+	GolfAPI.getRealTimeData(522, (err, res) => {
 		if (err) {
 			return fn(err)
 		}

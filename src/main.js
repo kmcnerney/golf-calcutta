@@ -16,6 +16,7 @@ import GolfActions from './actions/golf'
 
 // Components
 import LeaderBoard from './components/leader-board'
+import NavBar from './components/nav-bar'
 
 // Constants
 import Constants from './constants.js'
@@ -30,6 +31,7 @@ function renderContent (page, content) {
 	return ReactDOM.render(
 		<Provider store={store}>
 			<div>
+				<NavBar page={page} />
 				{content}
 			</div>
 		</Provider>, document.getElementById('root-div')

@@ -23,20 +23,20 @@ const COLUMNS = [
 		text: 'Current Position'
 	},
 	{
-		dataField: 'today',
-		text: 'Today'
-	},
-	{
-		dataField: 'total',
-		text: 'Total'
-	},
-	{
 		dataField: 'player_bio.first_name',
 		text: 'Golfer'
 	},
 	{
 		dataField: 'player_bio.last_name',
 		text: ''
+	},
+	{
+		dataField: 'today',
+		text: 'Today'
+	},
+	{
+		dataField: 'total',
+		text: 'Total'
 	},
 	{
 		dataField: 'buyer',
@@ -168,22 +168,20 @@ export default class LeaderBoard extends React.Component {
 		super(props)
 
 		this.state = getState()
-
-		this._onChange = this._onChange.bind(this)
 	}
 
 	componentDidMount () {
-		GolfStore.addChangeListener(this._onChange)
+		GolfStore.addChangeListener(() => this._onChange())
 	}
 
 	componentWillUnmount () {
-		GolfStore.removeChangeListener(this._onChange)
+		GolfStore.removeChangeListener(() => this._onChange())
 	}
 
 	render () {
 		return (
 			<BootstrapTable
-				keyField="leaderBoard"
+				keyField="player_id"
 				data={this.state.realTimeData}
 				columns={COLUMNS}
 			/>
