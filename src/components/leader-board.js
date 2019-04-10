@@ -20,7 +20,7 @@ const CALCUTTA_DOC_INDICES = {
 const COLUMNS = [
 	{
 		dataField: 'current_position',
-		text: 'Position'
+		text: 'Current Position'
 	},
 	{
 		dataField: 'player_bio.first_name',
